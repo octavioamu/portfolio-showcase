@@ -251,7 +251,93 @@ export default function Home() {
               </a>
               <del>Repo</del>
             </Info>
+            <ImagesCarousel>
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/treasury-monitor.png"
+                alt="Treasury monitor"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/treasury-monitor-app.png"
+                alt="Treasury monitor"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/treasury-monitor-tx.png"
+                alt="Treasury monitor tx"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/treasury-monitor-details.png"
+                alt="Treasury monitor detail"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+            </ImagesCarousel>
+
+            <ProjectContent>
+              <p>
+                This project was really nice to build, the primary objective was
+                to add more granular transparency to the treasury funds,and I
+                build the first version fetching data from gnosis, but then
+                stakeholders wanted more flexibility and be able even to add
+                offchain movements. I decided to move it to a mongoDB as this
+                project was a "pet project" and we were doing changes and
+                pivoting it a few times.
+              </p>
+
+              <h3 className="text-2xl pt-4">Challenge</h3>
+              <p>
+                A very important part of this project is the admin, where the
+                user add transactions or edit in place, but also I build a
+                custom bulk editor where admins can add multiple transactions,
+                get a list of all onchain transactions of the treasury and pick
+                the ones they want to add, export/import csv files as some of
+                them wanted to work on the data on excel.
+              </p>
+              <p>
+                Was very interesting to find ways to bring flexibility to handle
+                the data but at the same time keeping all transparent for the
+                community.
+              </p>
+              <p>
+                For other side the user input transactions but we wanted to
+                display a more financial analysis table, grouping data in a
+                pivot table based on all those parameters was quite challenging,
+                in terms of querying the DB using comples mongo aggregate but
+                also designing it in a way that doesn't get too technical.
+              </p>
+
+              <p></p>
+              <h3 className="text-2xl pt-4">Technology</h3>
+              <div className="flex gap-3 flex-wrap">
+                <Tag>Nextjs</Tag>
+                <Tag>React</Tag>
+                <Tag>Tailwind</Tag>
+                <Tag>MongoDB</Tag>
+                <Tag>Wagmi</Tag>
+                <Tag>Ethers</Tag>
+                <Tag>RainbowKit</Tag>
+                <Tag>NextAuth</Tag>
+              </div>
+            </ProjectContent>
           </TabsContent>
+
           <TabsContent value="case-4">
             <ProjectTitle title="Mantle Landing page" />
 
