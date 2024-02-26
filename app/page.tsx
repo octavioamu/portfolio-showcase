@@ -21,8 +21,8 @@ export default function Home() {
       <div className="lg:max-w-5xl my-10 px-6 py-10 bg-gradient-to-tr from-blue/50 to-pink/50 rounded-xl text-gray-700 animate-g leading-relaxed">
         <p>
           Hi Sushi friends, thanks for taking the time to check, as a developer
-          I couldn't just sent a pdf file to show my work and decided to go a
-          little further and showcase some of the work I have been doing, most
+          I couldn&apos;t just sent a pdf file to show my work and decided to go
+          a little further and showcase some of the work I have been doing, most
           of the code repositories are not public and I not longer have access,
           but I will try to explain as much as possible each case.
         </p>
@@ -106,8 +106,8 @@ export default function Home() {
                 consuming a subgraph with the token data (COMP) and displaying
                 the connected power and list of top 10 delegates. So we wanted
                 to do something better for Mantle, but stakeholders came with
-                "Just do the same of Optimism delegates". At that time the
-                example to follow was a way too simple and with a different
+                &quot;Just do the same of Optimism delegates&quot;. At that time
+                the example to follow was a way too simple and with a different
                 focus in stewards and we want to go more permissionless.
               </p>
               <p>
@@ -147,8 +147,8 @@ export default function Home() {
                 >
                   playground
                 </a>{" "}
-                to facilitate work with the api, as others systems like "mantle
-                journey" also needed this data.
+                to facilitate work with the api, as others systems like
+                &quot;mantle journey&quot; also needed this data.
               </p>
               <h3 className="text-2xl pt-4">Technology</h3>
               <div className="flex gap-3 flex-wrap">
@@ -212,10 +212,10 @@ export default function Home() {
               <p>
                 Bonds was a really interesting app to build, and was actually
                 inspired by Sushi 😬, but Bonds was never run on mainnet, it
-                started as "bonds" on the bull market and there were a lot of
-                internal changes and bonds contracts were taking very long,
-                after months there was a direction change and stakeholders asked
-                also to add pools.
+                started as &quot;bonds&quot; on the bull market and there were a
+                lot of internal changes and bonds contracts were taking very
+                long, after months there was a direction change and stakeholders
+                asked also to add pools.
               </p>
               <p>
                 Because all this conflict I proposed to the solidity team,
