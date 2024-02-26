@@ -51,6 +51,7 @@ export default function Home() {
               <span className="">Mantle Landing page</span>
             </TabsTrigger>
           </TabsList>
+          {/* Mantle delegates */}
           <TabsContent value="case-1">
             <ProjectTitle title="Mantle delegates" />
             <Info>
@@ -97,48 +98,50 @@ export default function Home() {
 
             <ProjectContent>
               <p>
-                It is in short terms a governance DApp to managing delegations,
-                which could sound too simple to be on top of this list, so I
-                will proceed to explain it.
+                In brief, I developed a governance DApp for managing
+                delegations, which may sound overly simplistic to top this list.
+                Let me explain further.
               </p>
               <p>
-                We had a delegate App very simple I did for BitDAO, just
-                consuming a subgraph with the token data (COMP) and displaying
-                the connected power and list of top 10 delegates. So we wanted
-                to do something better for Mantle, but stakeholders came with
-                &quot;Just do the same of Optimism delegates&quot;. At that time
-                the example to follow was a way too simple and with a different
-                focus in stewards and we want to go more permissionless.
+                Previously, I created a basic delegate app for BitDAO that
+                consumed a subgraph with token data (COMP) and displayed the
+                connected power along with the top 10 delegates. For Mantle, we
+                aimed to improve upon this simple model. However, stakeholders
+                requested a similar approach to Optimism&apos;s delegates. At
+                the time, the example to follow was too basic and focused on
+                stewards, whereas we wanted a more permissionless system.
               </p>
               <p>
-                Based on those arguments I proposed a better solution where
-                people could create their own profiles, became a delegate and
-                being able delegate to any address.
+                Considering these factors, I proposed a more advanced solution
+                that enables users to create profiles, become delegates, and
+                delegate to any address.
               </p>
               <h3 className="text-2xl pt-4">Challenge</h3>
               <p>
-                Mantle have a governance based on 3 tokens (MNT, MNT L2, BIT)
-                which was the main challenge to solve, technically and in terms
-                of UX for end users to understand. Instead of forcing the users
-                to migrate all their BIT to MNT to be able to vote I decided to
-                aggregate the 3 token data and we created an API to put the
-                onchain data together and be able to setup a custom{" "}
+                Mantle&apos;s governance is based on three tokens (MNT, MNT L2,
+                BIT), which presented a significant challenge in terms of
+                technical implementation and user experience. Instead of forcing
+                users to migrate all their BIT to MNT for voting purposes, I
+                decided to aggregate data from all three tokens. To achieve
+                this, we created an API that combines on-chain data and allows
+                for a custom{" "}
                 <a
                   href="https://snapshot.org/#/bitdao.eth/settings"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue"
                 >
-                  snapshot strategy api
+                  snapshot strategy API setup
                 </a>
                 .
               </p>
               <p>
-                To provide the data for snapshot and also for our delegates app,
-                a solution, Supagraph, was created to index onchain data,
-                similar to a supergraph but with a more simple stack, even
-                possible to run inside a vercel project with an external mongodb
-                and evm multichain compatible. Also with a{" "}
+                To provide data for both snapshot and our delegates app, we
+                developed Supagraph. This solution indexes on-chain data and is
+                similar to a supergraph but with a simpler stack. It can run
+                inside a Vercel project with an external MongoDB, and it&apos;s
+                compatible with EVM multichain. Additionally, Supagraph features
+                a{" "}
                 <a
                   href="https://api.delegatevote.mantle.xyz/"
                   target="_blank"
@@ -147,8 +150,8 @@ export default function Home() {
                 >
                   playground
                 </a>{" "}
-                to facilitate work with the api, as others systems like
-                &quot;mantle journey&quot; also needed this data.
+                to facilitate API usage, as other systems like &quot;mantle
+                journey&quot; also require this data.
               </p>
               <h3 className="text-2xl pt-4">Technology</h3>
               <div className="flex gap-3 flex-wrap">
@@ -164,6 +167,7 @@ export default function Home() {
               </div>
             </ProjectContent>
           </TabsContent>
+          {/* Bonds */}
           <TabsContent value="case-2">
             <ProjectTitle title="Bonds" />
             <Info>
@@ -210,33 +214,45 @@ export default function Home() {
 
             <ProjectContent>
               <p>
-                Bonds was a really interesting app to build, and was actually
-                inspired by Sushi 😬, but Bonds was never run on mainnet, it
-                started as &quot;bonds&quot; on the bull market and there were a
-                lot of internal changes and bonds contracts were taking very
-                long, after months there was a direction change and stakeholders
-                asked also to add pools.
+                The Bonds app was an intriguing project to work on, and it was
+                initially inspired by Sushi. However, Bonds never made it to
+                mainnet. The project began as &quot;bonds&quot; during a bull
+                market, but it faced numerous internal changes and delays in
+                developing the bonds contracts. After months of setbacks,
+                stakeholders requested the addition of pools to the project
+                scope.
               </p>
               <p>
-                Because all this conflict I proposed to the solidity team,
-                stakeholders and pm to focus on pools first so we can have
-                something out soon and stop delaying. The proposal was accepted
-                and things started to work out, with the contract ready and most
-                of the UI with mocked data, we did a subgraph and integrated to
-                it, but the bear market came and there were already plans to
-                rebrand BitDAO to Mantle so the project got deprecated before
-                launch.
+                Due to these conflicts, I proposed to the Solidity team,
+                stakeholders, and project manager that we prioritize pools to
+                expedite the release and avoid further delays. My proposal was
+                accepted, and progress was made with the contract and UI
+                development using mocked data. We also created a subgraph and
+                integrated it into the project. Unfortunately, the bear market
+                arrived, and plans to rebrand BitDAO to Mantle led to the
+                deprecation of the project before its launch.
               </p>
               <h3 className="text-2xl pt-4">Challenge</h3>
               <p>
-                Out of managing all the project people to get something out, the
-                most challenging part of the project was handling all the states
-                of the pools based on the time, and connected wallet, as the
-                business rules were complicated and we had to create different
-                managing actions for the admins.
+                The primary challenge of the project, aside from managing the
+                team and stakeholders, was handling the various states of the
+                pools based on pool times and connected wallet. The business
+                rules were complex, and we had to develop different management
+                actions for admins to address these intricacies.
               </p>
+              <h3 className="text-2xl pt-4">Technology</h3>
+              <div className="flex gap-3 flex-wrap">
+                <Tag>Nextjs</Tag>
+                <Tag>React</Tag>
+                <Tag>Tailwind</Tag>
+                <Tag>Subgraph</Tag>
+                <Tag>Wagmi</Tag>
+                <Tag>Ethers</Tag>
+                <Tag>NextAuth</Tag>
+              </div>
             </ProjectContent>
           </TabsContent>
+          {/* Treasury monitor */}
           <TabsContent value="case-3">
             <ProjectTitle title="Treasury monitor" />
 
@@ -292,38 +308,35 @@ export default function Home() {
 
             <ProjectContent>
               <p>
-                This project was really nice to build, the primary objective was
-                to add more granular transparency to the treasury funds,and I
-                build the first version fetching data from gnosis, but then
-                stakeholders wanted more flexibility and be able even to add
-                offchain movements. I decided to move it to a mongoDB as this
-                project was a &quot;pet project&quot; and we were doing changes
-                and pivoting it a few times.
+                This project was an enjoyable undertaking, with the primary
+                objective of providing more granular transparency to treasury
+                funds. I initially built the first version by fetching data from
+                Gnosis. However, stakeholders expressed a desire for greater
+                flexibility, including the ability to add off-chain movements.
+                To accommodate these requirements, I decided to migrate the data
+                to a MongoDB, as this project underwent multiple changes and
+                pivots.
               </p>
 
               <h3 className="text-2xl pt-4">Challenge</h3>
               <p>
-                A very important part of this project is the admin, where the
-                user add transactions or edit in place, but also I build a
-                custom bulk editor where admins can add multiple transactions,
-                get a list of all onchain transactions of the treasury and pick
-                the ones they want to add, export/import csv files as some of
-                them wanted to work on the data on excel.
+                A critical component of this project is the admin interface,
+                where users can add transactions or edit them in place. I also
+                developed a custom bulk editor allowing admins to add multiple
+                transactions, select specific on-chain transactions to include,
+                and export/import CSV files for easier data manipulation in
+                Excel. Balancing flexibility with transparency for the community
+                was an interesting challenge.
               </p>
               <p>
-                Was very interesting to find ways to bring flexibility to handle
-                the data but at the same time keeping all transparent for the
-                community.
+                On the user side, inputting transactions was straightforward,
+                but we aimed to present a more financial analysis-focused table.
+                Grouping data in a pivot table based on various parameters
+                proved challenging in terms of querying the database using
+                complex MongoDB aggregate functions. Additionally, designing the
+                table in a user-friendly manner that wasn&apos;t overly
+                technical presented its own set of challenges.
               </p>
-              <p>
-                For other side the user input transactions but we wanted to
-                display a more financial analysis table, grouping data in a
-                pivot table based on all those parameters was quite challenging,
-                in terms of querying the DB using comples mongo aggregate but
-                also designing it in a way that doesn&apos;t get too technical.
-              </p>
-
-              <p></p>
               <h3 className="text-2xl pt-4">Technology</h3>
               <div className="flex gap-3 flex-wrap">
                 <Tag>Nextjs</Tag>
@@ -337,7 +350,7 @@ export default function Home() {
               </div>
             </ProjectContent>
           </TabsContent>
-
+          {/* Mantle Landing page */}
           <TabsContent value="case-4">
             <ProjectTitle title="Mantle Landing page" />
 
@@ -415,37 +428,38 @@ export default function Home() {
 
             <ProjectContent>
               <p>
-                Mantle main site is a huge site and I was responsible for it and
-                also to manage 2 persons working on it. The site goes from
-                static data, to treasury values, tokeconomics and a blog form
-                directus CMS.
+                I was responsible for managing the development of Mantle&apos;s
+                main site, including overseeing the work of two team members.
+                The site features a range of content, from static data and
+                treasury values to tokenomics and a blog powered by Directus
+                CMS.
               </p>
               <h3 className="text-2xl pt-4">Challenge</h3>
               <p>
-                For the web3 part of this site we can talk about the data layer
-                of treasury and tokeconomics. This data was needed in different
-                applications and requested by partners so I decided to create a
-                public API to aggregate the different sources of data but also
-                provide an easy way to consume the data via rest or GraphQL.
+                For the web3 component of the site, we focused on the data layer
+                for treasury and tokenomics. This data was required for various
+                applications and requested by partners, so I decided to create a
+                public API. The API aggregates different data sources and
+                provides an accessible way to consume the data via REST or
+                GraphQL.
               </p>
               <p>
-                Because Mantle have one of the biggest treasuries on the
-                ecosystem, I had to consolidate the data from different sources
-                into an easy way to use not only internally.
+                Given that Mantle has one of the largest treasuries in the
+                ecosystem, consolidating data from various sources into a
+                user-friendly format was essential, not only for internal use
+                but also for external partners.
               </p>
               <p>
-                As we were expected a lot of traffic the blog was a very
-                important point of attention and after researching on many CMS I
-                decided to use Directus self-hosted.
-              </p>
-              <p>
-                To archive our needs on traffic I created the blog using ISR
-                (incremental static regeneration), every change or new blog post
-                a webhook is fired from directus (which also I setup and
-                managed) to an internal NextJS api route which generate only the
-                pieces requested and not the full site, keeping the best of both
-                worlds static and automaticaly updated when marketing do
-                changes.
+                The blog was a crucial aspect of the site, as we anticipated
+                high traffic volumes. After evaluating numerous CMS options, I
+                opted for a self-hosted Directus instance. To accommodate our
+                traffic requirements, I built the blog using Incremental Static
+                Regeneration (ISR). Whenever a change or new blog post occurs, a
+                webhook is triggered from Directus to an internal Next.js API
+                route. This route generates only the requested pieces, rather
+                than the full site, ensuring optimal performance while
+                maintaining automatic updates when changes are made by the
+                marketing team.
               </p>
               <h3 className="text-2xl pt-4">Technology</h3>
               <div className="flex gap-3 flex-wrap">
