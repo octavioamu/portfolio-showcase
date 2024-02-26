@@ -13,18 +13,18 @@ export default function Home() {
       <div className="lg:max-w-5xl">
         <h1 className="text-4xl font-extrabold">Portfolio Showcase</h1>
         <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">
-          In my time working for Mantle (ex BitDAO) I worked on multiple
-          projects, from airdrops to others like blogs, Governance Dapps,
-          bridges.
+          During my time working for Mantle (formerly BitDAO), I was involved in
+          multiple projects, ranging from airdrops to others such as blogs,
+          Governance Dapps, and bridges.
         </p>
       </div>
       <div className="lg:max-w-5xl my-10 px-6 py-10 bg-gradient-to-tr from-blue/50 to-pink/50 rounded-xl text-gray-700 animate-g leading-relaxed">
         <p>
-          Hi Sushi friends, thanks for taking the time to check, as a developer
-          I couldn&apos;t just sent a pdf file to show my work and decided to go
-          a little further and showcase some of the work I have been doing, most
-          of the code repositories are not public and I not longer have access,
-          but I will try to explain as much as possible each case.
+          Hello Sushi team, thank you for considering my application. As a
+          developer, I wanted to provide a more comprehensive showcase of my
+          work beyond a simple PDF file. Although most of the code repositories
+          are not public, and I no longer have access to them, I will do my best
+          to explain each project in detail.
         </p>
       </div>
       <div className="lg:max-w-5xl w-full mt-8 ">
