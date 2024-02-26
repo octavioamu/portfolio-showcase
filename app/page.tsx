@@ -297,8 +297,8 @@ export default function Home() {
                 build the first version fetching data from gnosis, but then
                 stakeholders wanted more flexibility and be able even to add
                 offchain movements. I decided to move it to a mongoDB as this
-                project was a "pet project" and we were doing changes and
-                pivoting it a few times.
+                project was a &quot;pet project&quot; and we were doing changes
+                and pivoting it a few times.
               </p>
 
               <h3 className="text-2xl pt-4">Challenge</h3>
@@ -320,7 +320,7 @@ export default function Home() {
                 display a more financial analysis table, grouping data in a
                 pivot table based on all those parameters was quite challenging,
                 in terms of querying the DB using comples mongo aggregate but
-                also designing it in a way that doesn't get too technical.
+                also designing it in a way that doesn&apos;t get too technical.
               </p>
 
               <p></p>
