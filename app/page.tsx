@@ -1,45 +1,382 @@
-import Image from "next/image";
+import BlurImage from "@/components/ui/blur-image";
+import ImagesCarousel from "@/components/ui/imagesCarousel";
+import Info from "@/components/ui/info";
+import ProjectContent from "@/components/ui/projectContent";
+import ProjectTitle from "@/components/ui/projectTitle";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import Tag from "@/components/ui/tag";
+import { placeholderBlurhash } from "@/lib/utils";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
+    <main className="flex min-h-screen flex-col items-center lg:p-10 mt-8 mb-20 lg:mx-auto mx-2 ">
+      <div className="lg:max-w-5xl">
+        <h1 className="text-4xl font-extrabold">Portfolio Showcase</h1>
+        <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">
+          In my time working for Mantle (ex BitDAO) I worked on multiple
+          projects, from airdrops to others like blogs, Governance Dapps,
+          bridges.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+      </div>
+      <div className="lg:max-w-5xl my-10 px-6 py-10 bg-gradient-to-tr from-blue/50 to-pink/50 rounded-xl text-gray-700 animate-g leading-relaxed">
+        <p>
+          Hi Sushi friends, thanks for taking the time to check, as a developer
+          I couldn't just sent a pdf file to show my work and decided to go a
+          little further and showcase some of the work I have been doing, most
+          of the code repositories are not public and I not longer have access,
+          but I will try to explain as much as possible each case.
+        </p>
+      </div>
+      <div className="lg:max-w-5xl w-full mt-8 ">
+        <Tabs
+          defaultValue="case-1"
+          className="w-full lg:grid grid-cols-12 items-start"
+          orientation="vertical"
+        >
+          <TabsList className="flex w-full lg:flex-col flex-row col-span-3 lg:sticky top-1">
+            <TabsTrigger value="case-1" className="flex flex-col">
+              <span className="text-xs">Case 1</span>
+              <span className="">Mantle delegates</span>
+            </TabsTrigger>
+            <TabsTrigger value="case-2">
+              <span className="text-xs">Case 2</span>
+              <span className="">Bonds</span>
+            </TabsTrigger>
+            <TabsTrigger value="case-3">
+              <span className="text-xs">Case 3</span>
+              <span className="">Treasury monitor</span>
+            </TabsTrigger>
+            <TabsTrigger value="case-4">
+              <span className="text-xs">Case 4</span>
+              <span className="">Mantle Landing page</span>
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="case-1">
+            <ProjectTitle title="Mantle delegates" />
+            <Info>
+              <a
+                href="https://delegatevote.mantle.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live app
+              </a>
+              <del>Repo</del>
+            </Info>
+
+            <ImagesCarousel>
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/delegates.png"
+                alt="Delegates"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/delegates-tokens.png"
+                alt="Delegates detail"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/delegates-profile.png"
+                alt="Delegates profile"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+            </ImagesCarousel>
+
+            <ProjectContent>
+              <p>
+                It is in short terms a governance DApp to managing delegations,
+                which could sound too simple to be on top of this list, so I
+                will proceed to explain it.
+              </p>
+              <p>
+                We had a delegate App very simple I did for BitDAO, just
+                consuming a subgraph with the token data (COMP) and displaying
+                the connected power and list of top 10 delegates. So we wanted
+                to do something better for Mantle, but stakeholders came with
+                "Just do the same of Optimism delegates". At that time the
+                example to follow was a way too simple and with a different
+                focus in stewards and we want to go more permissionless.
+              </p>
+              <p>
+                Based on those arguments I proposed a better solution where
+                people could create their own profiles, became a delegate and
+                being able delegate to any address.
+              </p>
+              <h3 className="text-2xl pt-4">Challenge</h3>
+              <p>
+                Mantle have a governance based on 3 tokens (MNT, MNT L2, BIT)
+                which was the main challenge to solve, technically and in terms
+                of UX for end users to understand. Instead of forcing the users
+                to migrate all their BIT to MNT to be able to vote I decided to
+                aggregate the 3 token data and we created an API to put the
+                onchain data together and be able to setup a custom{" "}
+                <a
+                  href="https://snapshot.org/#/bitdao.eth/settings"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue"
+                >
+                  snapshot strategy api
+                </a>
+                .
+              </p>
+              <p>
+                To provide the data for snapshot and also for our delegates app,
+                a solution, Supagraph, was created to index onchain data,
+                similar to a supergraph but with a more simple stack, even
+                possible to run inside a vercel project with an external mongodb
+                and evm multichain compatible. Also with a{" "}
+                <a
+                  href="https://api.delegatevote.mantle.xyz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue"
+                >
+                  playground
+                </a>{" "}
+                to facilitate work with the api, as others systems like "mantle
+                journey" also needed this data.
+              </p>
+              <h3 className="text-2xl pt-4">Technology</h3>
+              <div className="flex gap-3 flex-wrap">
+                <Tag>Nextjs</Tag>
+                <Tag>React</Tag>
+                <Tag>Tailwind</Tag>
+                <Tag>MongoDB</Tag>
+                <Tag>Supagraph*</Tag>
+                <Tag>Wagmi</Tag>
+                <Tag>Viem</Tag>
+                <Tag>ConnectKit</Tag>
+                <Tag>NextAuth</Tag>
+              </div>
+            </ProjectContent>
+          </TabsContent>
+          <TabsContent value="case-2">
+            <ProjectTitle title="Bonds" />
+            <Info>
+              <a
+                href="https://bonds-app.vercel.app/pools"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live app
+              </a>
+              <del>Repo</del>
+            </Info>
+
+            <ImagesCarousel>
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/bonds.png"
+                alt="Bonds"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/bonds-app.png"
+                alt="Bonds app"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/bonds-app-detail.png"
+                alt="Bonds app detail"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+            </ImagesCarousel>
+
+            <ProjectContent>
+              <p>
+                Bonds was a really interesting app to build, and was actually
+                inspired by Sushi 😬, but Bonds was never run on mainnet, it
+                started as "bonds" on the bull market and there were a lot of
+                internal changes and bonds contracts were taking very long,
+                after months there was a direction change and stakeholders asked
+                also to add pools.
+              </p>
+              <p>
+                Because all this conflict I proposed to the solidity team,
+                stakeholders and pm to focus on pools first so we can have
+                something out soon and stop delaying. The proposal was accepted
+                and things started to work out, with the contract ready and most
+                of the UI with mocked data, we did a subgraph and integrated to
+                it, but the bear market came and there were already plans to
+                rebrand BitDAO to Mantle so the project got deprecated before
+                launch.
+              </p>
+              <h3 className="text-2xl pt-4">Challenge</h3>
+              <p>
+                Out of managing all the project people to get something out, the
+                most challenging part of the project was handling all the states
+                of the pools based on the time, and connected wallet, as the
+                business rules were complicated and we had to create different
+                managing actions for the admins.
+              </p>
+            </ProjectContent>
+          </TabsContent>
+          <TabsContent value="case-3">
+            <ProjectTitle title="Treasury monitor" />
+
+            <Info>
+              <a
+                href="https://treasurymonitor.mantle.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live app
+              </a>
+              <del>Repo</del>
+            </Info>
+          </TabsContent>
+          <TabsContent value="case-4">
+            <ProjectTitle title="Mantle Landing page" />
+
+            <Info>
+              <a
+                href="https://www.mantle.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live Site
+              </a>
+              <a
+                href="https://github.com/mantle-xyz/api/blob/main/pages/api/v1/token-data/index.ts"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Api Repo
+              </a>
+              <a
+                href="https://api.mantle.xyz/playground"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live Api Docs
+              </a>
+              <a
+                href="https://api.mantle.xyz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                Live Swagger
+              </a>
+              <a
+                href="https://api.mantle.xyz/api/graphql"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue"
+              >
+                GraphQL Endpoint
+              </a>
+            </Info>
+            <ImagesCarousel>
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/mantle-l.png"
+                alt="Mantle landing"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/mantle-l-treasury.png"
+                alt="Mantle treasury"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+              <BlurImage
+                className="snap-start object-cover lg:h-[360px]"
+                src="/projects/mantle-l-token.png"
+                alt="Mantle tokeconomics"
+                width={480}
+                height={360}
+                placeholder="blur"
+                blurDataURL={placeholderBlurhash}
+              />
+            </ImagesCarousel>
+
+            <ProjectContent>
+              <p>
+                Mantle main site is a huge site and I was responsible for it and
+                also to manage 2 persons working on it. The site goes from
+                static data, to treasury values, tokeconomics and a blog form
+                directus CMS.
+              </p>
+              <h3 className="text-2xl pt-4">Challenge</h3>
+              <p>
+                For the web3 part of this site we can talk about the data layer
+                of treasury and tokeconomics. This data was needed in different
+                applications and requested by partners so I decided to create a
+                public API to aggregate the different sources of data but also
+                provide an easy way to consume the data via rest or GraphQL.
+              </p>
+              <p>
+                Because Mantle have one of the biggest treasuries on the
+                ecosystem, I had to consolidate the data from different sources
+                into an easy way to use not only internally.
+              </p>
+              <p>
+                As we were expected a lot of traffic the blog was a very
+                important point of attention and after researching on many CMS I
+                decided to use Directus self-hosted.
+              </p>
+              <p>
+                To archive our needs on traffic I created the blog using ISR
+                (incremental static regeneration), every change or new blog post
+                a webhook is fired from directus (which also I setup and
+                managed) to an internal NextJS api route which generate only the
+                pieces requested and not the full site, keeping the best of both
+                worlds static and automaticaly updated when marketing do
+                changes.
+              </p>
+              <h3 className="text-2xl pt-4">Technology</h3>
+              <div className="flex gap-3 flex-wrap">
+                <Tag>Nextjs</Tag>
+                <Tag>React</Tag>
+                <Tag>Tailwind</Tag>
+                <Tag>GraphQL</Tag>
+                <Tag>Viem</Tag>
+                <Tag>Alchemy</Tag>
+                <Tag>directus</Tag>
+              </div>
+            </ProjectContent>
+          </TabsContent>
+        </Tabs>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
+      {/* <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
         <a
           href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -107,7 +444,7 @@ export default function Home() {
             Instantly deploy your Next.js site to a shareable URL with Vercel.
           </p>
         </a>
-      </div>
+      </div> */}
     </main>
   );
 }
